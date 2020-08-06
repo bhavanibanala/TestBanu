@@ -34,12 +34,6 @@ public class SpringBootQuotesService {
    * @return - a quote
    */
   public Quote getRandomQuote() {
-		/*
-		 * Quote quote= restTemplate.getForObject(quotesBaseUrl + "/api/random",
-		 * Quote.class);
-		 * System.out.println("SpringBootQuotesService.getRandomQuote():::quote>>>>"+
-		 * quote.toString());
-		 */
-    return restTemplate.getForObject(quotesBaseUrl + "/api/random", Quote.class);
+		return restTemplate.getForObject(quotesBaseUrl + "/api/random", Quote.class);
   }
 }

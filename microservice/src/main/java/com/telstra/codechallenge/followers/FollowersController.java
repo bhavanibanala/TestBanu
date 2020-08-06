@@ -14,10 +14,8 @@ public class FollowersController {
 
 	
 	@GetMapping("/followers")
-	public List<ResponseData> oldestRepo() throws Exception {
+	public List<ResponseData> oldestRepo(){
 
-		List<ResponseData> listData = followersService.getZeroFollowers();
-
-		return listData;
+		return followersService.getZeroFollowers();
 	}
 }

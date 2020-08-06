@@ -5,22 +5,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class FormatedData {
 	
-	String html_url;
-	String watchers_count;
+	String htmlUrl;
+	String watchersCount;
 	String language;
 	String description;
 	String name;
-	public String getHtml_url() {
-		return html_url;
+	public String getHtmlUrl() {
+		return htmlUrl;
 	}
-	public void setHtml_url(String html_url) {
-		this.html_url = html_url;
+	public void setHtmlUrl(String htmlUrl) {
+		this.htmlUrl = htmlUrl;
 	}
-	public String getWatchers_count() {
-		return watchers_count;
+	public String getWatchersCount() {
+		return watchersCount;
 	}
-	public void setWatchers_count(String watchers_count) {
-		this.watchers_count = watchers_count;
+	public void setWatchersCount(String watchersCount) {
+		this.watchersCount = watchersCount;
 	}
 	public String getLanguage() {
 		return language;

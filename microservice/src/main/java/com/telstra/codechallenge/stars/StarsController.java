@@ -14,11 +14,9 @@ public class StarsController {
 	private StarsService starsService;
 	
 	@GetMapping("/starsval")
-	public List<FormatedData> starsRepo() throws Exception {
+	public List<FormatedData> starsRepo(){
 
-		List<FormatedData> listData = starsService.getStarsUsers();
-
-		return listData;
+		return starsService.getStarsUsers();
 	}
 	
 }

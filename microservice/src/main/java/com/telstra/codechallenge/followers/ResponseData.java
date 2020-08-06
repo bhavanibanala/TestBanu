@@ -7,7 +7,7 @@ public class ResponseData {
 
 	String id;
 	String login;
-	String html_url;
+	String htmlUrl;
 	
 	public String getId() {
 		return id;
@@ -21,11 +21,11 @@ public class ResponseData {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public String getHtml_url() {
-		return html_url;
+	public String getHtmlUrl() {
+		return htmlUrl;
 	}
-	public void setHtml_url(String html_url) {
-		this.html_url = html_url;
+	public void setHtmlUrl(String htmlUrl) {
+		this.htmlUrl = htmlUrl;
 	}
 	
 }

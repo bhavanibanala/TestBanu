@@ -13,9 +13,6 @@ public class Quote {
   private String type;
   private Value value;
   
-  public Quote() {
-  }
-  
   @Override
 public String toString() {
 	return "Quote [type=" + type + ", value=" + value + "]";
@@ -45,9 +42,6 @@ public void setValue(Value value) {
 
     private Long id;
     private String quote;
-    
-    public Value() {
-    }
     
     @Override
 	public String toString() {
