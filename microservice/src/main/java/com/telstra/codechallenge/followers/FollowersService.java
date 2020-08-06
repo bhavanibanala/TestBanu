@@ -4,16 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.telstra.codechallenge.handler.RestTemplateResponseErrorHandler;
+
 @Service
 @Component
 public class FollowersService {
+	
 
 	@Value("${followers.url}")
 	private String followersUrl;
@@ -23,15 +28,24 @@ public class FollowersService {
 	public FollowersService(RestTemplate restTemplate) {
 		this.restTemplate = restTemplate;
 	}
+	
+	@Autowired
+    public FollowersService(RestTemplateBuilder restTemplateBuilder) {
+        restTemplate = restTemplateBuilder
+          .errorHandler(new RestTemplateResponseErrorHandler())
+          .build();
+    }
 
 	
 	public List<ResponseData> getZeroFollowers(){
 
 		List<ResponseData> listData = new ArrayList<ResponseData>();
+		ResponseEntity<Map> response;
 
 		try {
 
-			ResponseEntity<Map> response = restTemplate.exchange(followersUrl, HttpMethod.GET, null, Map.class);
+			response = restTemplate.exchange(followersUrl, HttpMethod.GET, null, Map.class);
+			if(response.getStatusCode().is2xxSuccessful()) {
 			Map<?, ?> map = response.getBody();
 			List<?> list = (List<?>) map.get("items");
 			for (int i = 0; i < list.size(); i++) {
@@ -47,6 +61,9 @@ public class FollowersService {
 				data.setLogin(map1.get("login").toString());
 				}
 				listData.add(data);
+			}
+			}else {
+				restTemplate.setErrorHandler(new RestTemplateResponseErrorHandler());
 			}
 
 		} catch (Exception e) {

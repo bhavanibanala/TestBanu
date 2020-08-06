@@ -26,7 +26,6 @@ public class SpringBootQuotesController {
 
   @RequestMapping(path = "/quotes/random", method = RequestMethod.GET)
   public Quote quote() {
-	  System.out.println("SpringBootQuotesController.quote();;;");
-    return springBootQuotesService.getRandomQuote();
+	  return springBootQuotesService.getRandomQuote();
   }
 }
