@@ -39,18 +39,28 @@ public class StarsService {
 				FormatedData formatedData = new FormatedData();
 				if(map1.get("html_url")!=null) {
 					formatedData.setHtmlUrl(map1.get("html_url").toString());
+					}else {
+						formatedData.setHtmlUrl(" ");
 					}
 					if(map1.get("description")!=null) {
 					formatedData.setDescription(map1.get("description").toString());
+					}else {
+						formatedData.setDescription(" ");
 					}
 					if(map1.get("language")!=null) {
 					formatedData.setLanguage(map1.get("language").toString());
+					}else {
+						formatedData.setLanguage(" ");
 					}
 					if(map1.get("name")!=null) {
 					formatedData.setName(map1.get("name").toString());
+					}else {
+						formatedData.setName(" ");
 					}
 					if(map1.get("watchers_count")!=null) {
 					formatedData.setWatchersCount(map1.get("watchers_count").toString());
+					}else {
+						formatedData.setWatchersCount(" ");
 					}
 				
 				listData.add(formatedData);
