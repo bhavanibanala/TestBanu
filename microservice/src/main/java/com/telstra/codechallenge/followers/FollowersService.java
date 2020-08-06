@@ -18,9 +18,7 @@ public class FollowersService {
 
 	@Value("${followers.url}")
 	private String followersUrl;
-	@Autowired
-	private ResponseData data;
-
+	
 	private RestTemplate restTemplate;
 
 	public FollowersService(RestTemplate restTemplate) {
@@ -40,9 +38,16 @@ public class FollowersService {
 			List list = (List) map.get("items");
 			for (int i = 0; i < list.size(); i++) {
 				Map map1 = (Map) list.get(i);
+				ResponseData data = new ResponseData();
+				if(map1.get("html_url")!=null) {
 				data.setHtml_url(map1.get("html_url").toString());
+				}
+				if(map1.get("id")!=null) {
 				data.setId(map1.get("id").toString());
+				}
+				if(map1.get("login")!=null) {
 				data.setLogin(map1.get("login").toString());
+				}
 				listData.add(data);
 			}
 
